@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+<article class="framework">
+    <header>
+        <h1>
+            <small>Framework</small>
+            <a href="{{ page.external_url }}" rel="nofollow noopener"
+                title="Apple Developer Documentation for {{ page.title }}">
+                {{ page.title }}
+            </a>
+        </h1>
+
+        {%- assign total_number_of_symbols = page.number_of_documented_symbols | plus: page.number_of_undocumented_symbols -%}
+
+        <figure>
+            <figcaption>
+                {{ page.number_of_documented_symbols }}
+                /
+                {{ total_number_of_symbols }}
+                <span class="percentage">
+                    ({{ page.number_of_documented_symbols | percentage_of: total_number_of_symbols }})
+                </span>
+
+                Documented
+            </figcaption>
+
+            {% include meter.html value=page.number_of_documented_symbols max=total_number_of_symbols %}
+        </figure>
+    </header>
+
+    {%- if page.number_of_undocumented_symbols > 0 -%}
+    <section id="undocumented">
+        <table id="symbols" role="table">
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        {%- if page.number_of_undocumented_symbols > 1 -%}
+                        {{ page.number_of_undocumented_symbols }} Undocumented Symbols
+                        {%- else -%}
+                        {{ page.number_of_undocumented_symbols }} Undocumented Symbol
+                        {%- endif -%}
+                    </th>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%- for symbol in page.symbols -%}
+                <tr>
+                    <td>
+                        <abbr class="symbol {{ symbol.type | downcase }}" aria-label="{{ symbol.type }}"
+                            title="{{ symbol.type }}"></abbr>
+                    </td>
+                    <td>
+                        <a href="{{ symbol.url }}" rel="nofollow noopener"
+                            title="Apple Developer Documentation for {{ symbol.name }}">
+                            {{ symbol.name }}
+                        </a>
+                    </td>
+                </tr>
+                {%- endfor -%}
+            </tbody>
+        </table>
+    </section>
+    {% endif %}
+</article>

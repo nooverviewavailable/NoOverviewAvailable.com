@@ -1,0 +1,194 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (6.0.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+      zeitwerk (~> 2.1, >= 2.1.8)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
+    capybara (3.29.0)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.5)
+      xpath (~> 3.2)
+    capybara-mechanize (1.11.0)
+      capybara (>= 2.4.4, < 4)
+      mechanize (~> 2.7.0)
+    childprocess (3.0.0)
+    chronic (0.10.2)
+    cliver (0.3.2)
+    coderay (1.1.2)
+    colorator (1.1.0)
+    concurrent-ruby (1.1.5)
+    connection_pool (2.2.2)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.5)
+    em-websocket (0.5.1)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.6.0)
+    eventmachine (1.2.7)
+    ffi (1.11.1)
+    forwardable-extended (2.6.0)
+    headless (2.3.1)
+    htmlbeautifier (1.3.1)
+    htmlcompressor (0.4.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http_parser.rb (0.6.0)
+    i18n (1.7.0)
+      concurrent-ruby (~> 1.0)
+    jekyll (4.0.0)
+      addressable (~> 2.4)
+      colorator (~> 1.0)
+      em-websocket (~> 0.5)
+      i18n (>= 0.9.5, < 2)
+      jekyll-sass-converter (~> 2.0)
+      jekyll-watch (~> 2.0)
+      kramdown (~> 2.1)
+      kramdown-parser-gfm (~> 1.0)
+      liquid (~> 4.0)
+      mercenary (~> 0.3.3)
+      pathutil (~> 0.9)
+      rouge (~> 3.0)
+      safe_yaml (~> 1.0)
+      terminal-table (~> 1.8)
+    jekyll-sass-converter (2.0.1)
+      sassc (> 2.0.1, < 3.0)
+    jekyll-tidy (0.2.2)
+      htmlbeautifier
+      htmlcompressor
+      jekyll
+    jekyll-watch (2.2.1)
+      listen (~> 3.0)
+    kimurai (1.4.0)
+      activesupport
+      capybara (>= 2.15, < 4.0)
+      capybara-mechanize
+      cliver
+      headless
+      murmurhash3
+      nokogiri
+      pmap
+      poltergeist
+      pry
+      rbcat (~> 0.2)
+      selenium-webdriver
+      thor
+      whenever
+    kramdown (2.1.0)
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
+    liquid (4.0.3)
+    liquid-c (4.0.0)
+      liquid (>= 3.0.0)
+    listen (3.2.0)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
+    mechanize (2.7.6)
+      domain_name (~> 0.5, >= 0.5.1)
+      http-cookie (~> 1.0)
+      mime-types (>= 1.17.2)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-persistent (>= 2.5.2)
+      nokogiri (~> 1.6)
+      ntlm-http (~> 0.1, >= 0.1.1)
+      webrobots (>= 0.0.9, < 0.2)
+    mercenary (0.3.6)
+    method_source (0.9.2)
+    mime-types (3.3)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2019.1009)
+    mini_mime (1.0.2)
+    mini_portile2 (2.4.0)
+    minitest (5.12.2)
+    murmurhash3 (0.1.6)
+    net-http-digest_auth (1.4.1)
+    net-http-persistent (3.1.0)
+      connection_pool (~> 2.2)
+    nokogiri (1.10.4)
+      mini_portile2 (~> 2.4.0)
+    ntlm-http (0.1.1)
+    odyssey (0.3.1)
+    oj (3.9.2)
+    parallel (1.18.0)
+    pathutil (0.16.2)
+      forwardable-extended (~> 2.6)
+    pmap (1.1.1)
+    poltergeist (1.18.1)
+      capybara (>= 2.1, < 4)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    public_suffix (4.0.1)
+    rack (2.0.7)
+    rack-test (1.1.0)
+      rack (>= 1.0, < 3)
+    rake (13.0.0)
+    rb-fsevent (0.10.3)
+    rb-inotify (0.10.0)
+      ffi (~> 1.0)
+    rbcat (0.2.1)
+    regexp_parser (1.6.0)
+    rouge (3.12.0)
+    rubyzip (2.0.0)
+    safe_yaml (1.0.5)
+    sassc (2.2.1)
+      ffi (~> 1.9)
+    selenium-webdriver (3.142.6)
+      childprocess (>= 0.5, < 4.0)
+      rubyzip (>= 1.2.2)
+    terminal-table (1.8.0)
+      unicode-display_width (~> 1.1, >= 1.1.1)
+    thor (0.20.3)
+    thread_safe (0.3.6)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
+    tzinfo-data (1.2019.3)
+      tzinfo (>= 1.0.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.6)
+    unicode-display_width (1.6.0)
+    wdm (0.1.1)
+    webrobots (0.1.2)
+    websocket-driver (0.7.1)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.4)
+    whenever (1.0.0)
+      chronic (>= 0.6.3)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
+    zeitwerk (2.2.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport
+  dotenv
+  jekyll (~> 4.0.0)
+  jekyll-tidy
+  kimurai
+  liquid-c
+  mechanize
+  nokogiri
+  odyssey
+  oj
+  parallel
+  rake
+  sassc
+  tzinfo (~> 1.2)
+  tzinfo-data
+  wdm (~> 0.1.1)
+
+BUNDLED WITH
+   2.0.2

@@ -1,0 +1,2 @@
+<meter value="{{ include.value }}" min="0" max="{{ include.max }}" low="{{ include.max | times: 0.5 | ceil }}"
+    high="{{ include.max | times: 0.9 | floor }}" optimum="{{ include.max }}"></meter>

@@ -1,0 +1,30 @@
+title: No Overview Available.
+email: mattt@nshipster.com
+description: >-
+  A survey of Apple developer documentation.
+baseurl: ""
+url: "https://nooverviewavailable.com"
+twitter_username: nshipster
+github_username: nshipster
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  - rakelib/
+  - lib/
+  - node_modules/
+  - vendor/
+  - tmp/
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+jekyll_tidy:
+  compress_html: true
+  # ignore_env: development
+
+last_scraped_on: 2019-9-20

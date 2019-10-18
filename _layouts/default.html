@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    {%- if page.title -%}
+    <title>{{ site.title | escape }} - {{ page.title | escape }}</title>
+    {%- else -%}
+    <title>{{ site.title | escape }}</title>
+    {%- endif -%}
+
+    <meta name="description" content="{{ site.description | markdownify | strip_html }}" />
+    <meta name="robots" content="index,follow" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="stylesheet" href="/css/screen.css" />
+</head>
+
+<body>
+    <header>
+        <h1><a href="/">{{ site.title | escape }}</a></h1>
+        <h2>{{ site.description | escape }}</h2>
+    </header>
+    <main>
+        {{ content }}
+    </main>
+    <footer>
+        <p><strong>An <a href="https://nshipster.com/">NSHipster</a> project</strong>.
+            Source code <a href="https://github.com/NSHipster/NoOverviewAvailable.com">available on GitHub</a>.</p>
+        <p>
+            Last generated on
+            <time datetime="{{ site.last_scraped_on | date_to_xmlschema }}">
+                {{ site.last_scraped_on | date: '%B %d, %Y' }}
+            </time>
+        </p>
+        <p>All content copyright © {{ site.time | date: '%Y' }} Apple Inc. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

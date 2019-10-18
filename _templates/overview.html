@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<table id="frameworks" role="table">
+    <thead>
+        <tr>
+            <th>Framework</th>
+            <th>Symbols Documented</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for framework in page.frameworks %}
+        {% assign number_of_symbols = framework.number_of_documented_symbols | plus: framework.number_of_undocumented_symbols %}
+
+        <tr id="framework-{{ framework.id }}">
+            <th>
+                <a href="{{ framework.permalink }}">{{ framework.name }}</a>
+            </th>
+            <td>
+                <figure>
+                    <figcaption>
+                        {{ framework.number_of_documented_symbols }}
+                        /
+                        {{ number_of_symbols }}
+                        <span class="percentage">
+                            ({{ framework.number_of_documented_symbols | percentage_of: number_of_symbols }})
+                        </span>
+                    </figcaption>
+
+                    {% include meter.html value=framework.number_of_documented_symbols max=number_of_symbols %}
+                </figure>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,11 @@
+{% assign total_number_of_documented_symbols = 0 %}
+{% assign total_number_of_undocumented_symbols = 0 %}
+{% for framework in page.frameworks %}
+{% assign total_number_of_documented_symbols = total_number_of_documented_symbols | plus: framework.number_of_documented_symbols %}
+{% assign total_number_of_undocumented_symbols = total_number_of_undocumented_symbols | plus: framework.number_of_undocumented_symbols %}
+{% endfor %}
+
+{% assign total_number_of_symbols = total_number_of_documented_symbols | plus: total_number_of_undocumented_symbols %}
+
+{{ total_number_of_documented_symbols | percentage_of: total_number_of_symbols }} Documented
+<progress value="{{ total_number_of_documented_symbols }}" max="{{ total_number_of_symbols }}"></progress>

@@ -1,0 +1,297 @@
+@import "./mixins";
+@import "./colors";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(1.5em + 0.25 * (100vw - 80em) / 40);
+  font-size: -webkit-calc(150% + 0.25 * (100vw - 8000%) / 40);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: -apple-system, "SF Pro Display", BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+body {
+  & > header {
+    text-align: center;
+    padding-bottom: 2em;
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-weight: normal;
+      font-style: italic;
+      font-size: smaller;
+      color: #222;
+    }
+  }
+
+  & > header,
+  & > main,
+  & > footer {
+    width: 90vw;
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
+  main {
+    margin-bottom: 2em;
+  }
+
+  & > footer {
+    font-size: small;
+    padding: 2em 0;
+  }
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+table {
+  display: grid;
+  border-collapse: collapse;
+  min-width: 100%;
+
+  &#frameworks {
+    grid-template-columns: minmax(150px, 3fr) max-content;
+  }
+
+  &#symbols {
+    grid-template-columns: 50px auto;
+
+    thead tr:last-of-type * {
+      display: none;
+    }
+
+    thead th[colspan] {
+      grid-column: 1 / span 2;
+    }
+
+    tbody td:first-of-type {
+      @include noselect;
+    }
+  }
+
+  thead,
+  tbody,
+  tr {
+    display: contents;
+  }
+
+  thead th {
+    @include noselect;
+    font-weight: 700;
+    font-size: smaller;
+    padding-left: 0;
+    padding-right: 0;
+    color: $darkgray;
+  }
+
+  th,
+  td {
+    padding: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-feature-settings: "tnum";
+  }
+
+  th {
+    position: sticky;
+    top: 0;
+    text-align: left;
+    font-weight: normal;
+    font-size: 1.1em;
+    position: relative;
+  }
+
+  th:last-child {
+    border: 0;
+  }
+
+  td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  tr:nth-child(even) th,
+  tr:nth-child(even) td {
+    background: darken($white, 2%);
+  }
+
+  td span.percentage {
+    float: right;
+    text-align: right;
+    color: $gray;
+  }
+}
+
+a {
+  color: $darkgray;
+  &:link,
+  &:visited {
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: $black;
+  }
+}
+
+h1 small {
+  display: block;
+  font-size: 0.5em;
+  font-weight: normal;
+  color: $gray;
+}
+
+@mixin bad {
+  background: $red;
+}
+
+@mixin ok {
+  background: $orange;
+}
+
+@mixin good {
+  background: $green;
+}
+
+@mixin rounded {
+  border-radius: 8px;
+}
+
+meter {
+  -webkit-appearance: meter;
+  -moz-appearance: meter;
+  appearance: meter;
+  display: block;
+  margin-top: 0.25em;
+  width: 100%;
+
+  &,
+  &::-webkit-meter-bar {
+    background: darken($white, 4%);
+  }
+
+  & {
+    @include rounded;
+  }
+
+  &::-webkit-meter-bar {
+    @include rounded;
+  }
+
+  &::-moz-meter-bar {
+    @include rounded;
+  }
+
+  &::-webkit-meter-optimum-value {
+    @include rounded;
+
+    @include good;
+  }
+
+  &:-moz-meter-optimum::-moz-meter-bar {
+    @include good;
+  }
+
+  &::-webkit-meter-suboptimum-value {
+    @include rounded;
+    @include ok;
+  }
+
+  &:-moz-meter-sub-optimum::-moz-meter-bar {
+    @include ok;
+  }
+
+  &::-webkit-meter-even-less-good-value {
+    @include rounded;
+    @include bad;
+  }
+
+  &:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+    @include bad;
+  }
+}
+
+.framework header {
+  display: flex;
+  padding: 1.5em 0;
+
+  h1 {
+    font-size: 1.75em;
+    flex: 2;
+    margin: 0;
+  }
+
+  figure {
+    flex: 1;
+    margin: 1em 0 0 0;
+  }
+}
+
+figure {
+  margin: 0 0 0.5em 0;
+  font-size: 0.667em;
+
+  figcaption {
+    margin-bottom: 0.5em;
+  }
+}
+
+@mixin symbol($name, $symbol, $color) {
+  &.#{$name} {
+    &:before {
+      content: "#{$symbol}";
+      display: block;
+      width: 1rem;
+      padding: 0.1rem;
+      border: 1px solid $color;
+      border-radius: 4px;
+      background: darken($color, 20%);
+    }
+  }
+}
+
+.symbol {
+  @include noselect;
+  font-weight: bold;
+  color: $white;
+  font-size: small;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  font-family: SFMono-Regular, Menlo, Consolas, Courier, monospace;
+  padding-top: 0.33em;
+
+  @include symbol("alias", "@", $gray);
+  @include symbol("case", "c", $orange);
+  @include symbol("class", "C", $pink);
+  @include symbol("enumeration", "E", $orange);
+  @include symbol("function", "𝑓", $green);
+  @include symbol("global", "$", $green);
+  @include symbol("initializer", "I", $blue);
+  @include symbol("method", "M", $blue);
+  @include symbol("operator", "+", $gray);
+  @include symbol("property", "P", $blue);
+  @include symbol("protocol", "Pᵣ", $pink);
+  @include symbol("structure", "S", $pink);
+  @include symbol("subscript", "[]", $blue);
+}
