@@ -7,6 +7,9 @@ url: "https://nooverviewavailable.com"
 twitter_username: nshipster
 github_username: nshipster
 
+include:
+  - .well-known
+
 exclude:
   - .sass-cache/
   - .jekyll-cache/
