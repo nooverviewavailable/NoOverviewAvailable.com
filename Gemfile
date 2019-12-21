@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'jekyll', '~> 4.0.0'
+gem 'rack', '>= 2.0.8'
 
 group :jekyll_plugins do
   gem 'jekyll-tidy'
@@ -10,8 +11,6 @@ end
 
 gem 'activesupport'
 gem 'liquid-c', require: 'liquid/c'
-gem 'oj'
-gem 'parallel'
 gem 'sassc'
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -29,5 +28,7 @@ group :rakefile do
   gem 'mechanize'
   gem 'nokogiri'
   gem 'odyssey'
+  gem 'oj'
+  gem 'parallel'
   gem 'rake'
 end
